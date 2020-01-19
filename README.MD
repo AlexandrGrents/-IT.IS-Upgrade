@@ -19,7 +19,7 @@
 * [**alToTheBottomDB.py**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/blob/master/alToTheBottomDB.py) - декларативное представление классов таблиц базы данных.
 * [**all_to_the_bottom.db**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/blob/master/all_to_the_bottom.db) - база данных
 
-###Используемые технологии:
+### Используемые технологии:
 * [Flask](https://www.palletsprojects.com/p/flask/)
 * [SQLAlchemy](https://www.sqlalchemy.org/)
 * [geoip2](https://github.com/maxmind/GeoIP2-python)
