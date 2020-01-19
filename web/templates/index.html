@@ -3,135 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Тестовое задание</title>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		
-	</style>
+	<script type="text/javascript" src="../static/script.js"></script>
+	<link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-	<h1>Тестовое задание</h1>
-	<select name="" id="select-report" onchange="update_select_report()">
-		<option value="events_per_country">Посетители из какой страны совершают больше всего действий на сайте?</option>
-		<option value="country_category">Посетители из какой страны чаще всего интересуются товарами из определенных категорий?</option>
-		<option value="daypart_category">В какое время суток чаще всего просматривают определенную категорию товаров?</option>
+	<h1>Анализ потребностей пользователь интернет-магазина "Все на дно!"</h1>
+	<h2>Выберите тип отчёта:</h2>
+	<select class = "choose-request-select" id="select-report" onchange="update_report_selector()">
+		<option value="events_per_country">1. Посетители из какой страны совершают больше всего действий на сайте?</option>
+		<option value="country_category">2. Посетители из какой страны чаще всего интересуются товарами из определенных категорий?</option>
+		<option value="daypart_category">3. В какое время суток чаще всего просматривают определенную категорию товаров?</option>
 	</select>
-	<select name="" id="select-category" hidden>
+	<select class = "choose-request-select" id="select-category" hidden>
 		<option value="fresh_fish">1. fresh_fish</option>
         <option value="canned_food">2. canned_food</option>
         <option value="semi_manufactures">3. semi_manufactures</option>
         <option value="caviar">4. caviar</option>
         <option value="frozen_fish">5. frozen_fish</option>
 	</select>
-	<button onclick="do_query()">Get</button>
-	<button onclick="clear()">Claer</button>
-
-	<div id="chart" style="width: 100vw; height: 70vh;"></div>
-
-	<script>
-		function update_select_report()
-		{
-			var active_option = document.getElementById("select-report").value;
-			console.log('Select '+ active_option + 'in report selector');
-			if (active_option == 'country_category' || active_option == 'daypart_category')
-			{
-				document.getElementById('select-category').hidden = false;
-			}
-			else
-			{
-				document.getElementById('select-category').hidden = true;
-			}
-		}
-		function clear()
-		{
-			console.log("???");
-			alert("clear");
-			document.getElementById('chart').innerHTML = '';
-		}
-
-		function do_query()
-		{
-			var active_option = document.getElementById("select-report").value;
-			console.log('Do query '+ active_option);
-			switch (active_option)
-			{
-				case 'events_per_country':
-					events_per_country();
-					break;
-				case 'country_category':
-					country_category(active_option);
-					break;
-				case 'daypart_category':
-					alert("3");
-					break;
-							
-			}
-		}
-		function country_category(category)
-		{
-			var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'country_category');
-            xhr.send(category);
-            xhr.onreadystatechange = function () {
-            	if (xhr.responseText !== '')
-            	{
-            		alert("!!");
-            	}
-            }
-		}
-		function events_per_country()
-		{
-			var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'events_per_country');
-            xhr.send();
-            xhr.onreadystatechange = function () 
-            {
-            	 if(xhr.responseText !== '')
-            	 {
-            	 	var serverResponse = JSON.parse(xhr.responseText);
-				    google.charts.load("current", {packages:["corechart"]});
-				    google.charts.setOnLoadCallback(function()
-				    {
-				    	var max = 0;
-				        var data = [["", ""]];
-				        for (var i = serverResponse.length-1; i>=0; i--)
-				        {
-				        	if (serverResponse[i]['country']!='another')
-				        	{
-				        		if (max < serverResponse[i]['count'])
-				        		{
-				        			max = serverResponse[i]['count'];
-				        		}
-				        		data.push([serverResponse[i]['country'], serverResponse[i]['count']]);
-				        	}
-				        }
-				        var dataTable = google.visualization.arrayToDataTable(data);
-				        var options = {
-				            title          : "",
-				            chartArea      : {left: '5%', top: '5%', width: '95%'},
-				            backgroundColor: 'transparent',
-				            bar            : {groupWidth: "95%"},
-				            legend: { position: 'none' },
-				            colors : ['#33f'],
-				            histogram: { lastBucketPercentile: 5 },
-				    		vAxis: { scaleType: 'mirrorLog',
-				    		minValue: 0,
-				            maxValue: max },
-
-				        };
-				        var chart   = new google.visualization.ColumnChart(document.getElementById('chart'));
-				        chart.draw(dataTable, options);
-				       
-				    });
-				}
-
-            }
-		}
-		 
-	</script>
+	<div id="send-request">
+		<button class = "send-request-button" id = "send" onclick="do_query()">Получить отчёт</button>
+		<button class = "send-request-button" id = "clear" onclick="destroy_repprt()">Отчистить</button>
+	</div>
+	<div id="chart"></div>
 </body>
 </html>

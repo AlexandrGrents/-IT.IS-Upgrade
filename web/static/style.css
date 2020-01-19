@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#send-request
+{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+#send
+{
+	background: #00cc66;
+}
+#clear
+{
+	background: #ff8080;
+	
+}
+.send-request-button
+{
+	margin: 5px;
+	font-weight: bold;
+	width: 130px;
+	height: 30px;
+	border-radius: 5px;
+	border: 1px solid #d9d9d9;
+}
+.choose-request-select
+{
+	max-width: 500px;
+}
+#chart
+{
+	width: 90%; 
+	height: 70vh;
+}
