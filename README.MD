@@ -11,15 +11,16 @@
 
 Структура репозитория:
 ---------------------------
-[**Input data**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/tree/master/Input%20data) - папка с исходными данными. Содержит лог-файл
-[**docs**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/tree/master/docs) - папка с документами. Содержит задание и описание базы данных
-[**parser**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/tree/master/parser) - папка, содержащая всё, связанное с парсером логов, который переносить информацию из лог-файла в базу данных
-[**web**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/tree/master/web) - папка, содержащая всё, связанное с web-приложением, предоставляющим отчёты и визуализацию
-[**alToTheBottomDB.py**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/blob/master/alToTheBottomDB.py) - декларативное представление классов таблиц базы данных.
-[**all_to_the_bottom.db**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/blob/master/all_to_the_bottom.db) - база данных
+* [**Input data**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/tree/master/Input%20data) - папка с исходными данными. Содержит лог-файл
+* [**output examples**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/blob/master/output%20examples) - примеры генерируемых отчётов
+* [**docs**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/tree/master/docs) - папка с документами. Содержит задание и описание базы данных
+* [**parser**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/tree/master/parser) - папка, содержащая всё, связанное с парсером логов, который переносить информацию из лог-файла в базу данных
+* [**web**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/tree/master/web) - папка, содержащая всё, связанное с web-приложением, предоставляющим отчёты и визуализацию
+* [**alToTheBottomDB.py**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/blob/master/alToTheBottomDB.py) - декларативное представление классов таблиц базы данных.
+* [**all_to_the_bottom.db**](https://github.com/AlexandrGrents/log-analyzer-IT.IS-Upgrade/blob/master/all_to_the_bottom.db) - база данных
 
-Используемые технологии:
--[Flask](https://www.palletsprojects.com/p/flask/)
--[SQLAlchemy](https://www.sqlalchemy.org/)
--[geoip2](https://github.com/maxmind/GeoIP2-python)
--[Google Charts](https://developers.google.com/chart/interactive/docs/quick_start)
+####Используемые технологии:
+* [Flask](https://www.palletsprojects.com/p/flask/)
+* [SQLAlchemy](https://www.sqlalchemy.org/)
+* [geoip2](https://github.com/maxmind/GeoIP2-python)
+* [Google Charts](https://developers.google.com/chart/interactive/docs/quick_start)
